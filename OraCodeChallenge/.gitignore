@@ -1,0 +1,55 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+
+App_Data
+[Bb]in
+[Oo]bj
+[Tt]est[Rr]esults
+*.suo
+*.user
+*.[Cc]ache
+*[Rr]esharper*
+packages
+NuGet.exe
+_[Ss]cripts
+*.exe
+*.dll
+*.nupkg
+*.ncrunchsolution
+*.dot[Cc]over
+*.pubxml
+
+packages/	
+src/.vs
+src/**/bin
+src/**/obj

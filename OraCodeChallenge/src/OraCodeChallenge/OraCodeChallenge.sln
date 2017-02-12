@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OraCodeChallenge", "OraCodeChallenge\OraCodeChallenge.csproj", "{F874694E-F629-4F9A-8DAB-17DFDA66F7C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OraCodeChallenge.Tests", "OraCodeChallenge.Tests\OraCodeChallenge.Tests.csproj", "{6AC273B4-A1D5-4A23-91CB-67D94F212A82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F874694E-F629-4F9A-8DAB-17DFDA66F7C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F874694E-F629-4F9A-8DAB-17DFDA66F7C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F874694E-F629-4F9A-8DAB-17DFDA66F7C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F874694E-F629-4F9A-8DAB-17DFDA66F7C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AC273B4-A1D5-4A23-91CB-67D94F212A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC273B4-A1D5-4A23-91CB-67D94F212A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC273B4-A1D5-4A23-91CB-67D94F212A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AC273B4-A1D5-4A23-91CB-67D94F212A82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
