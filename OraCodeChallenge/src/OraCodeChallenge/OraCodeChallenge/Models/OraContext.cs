@@ -15,7 +15,7 @@ namespace OraCodeChallenge.Models
         //}
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
+        //public DbSet<Role> Roles { get; set; }
         public DbSet<Chat> Chats { get; set; }
 
 
@@ -24,8 +24,8 @@ namespace OraCodeChallenge.Models
             modelBuilder.Conventions.Remove<PluralizingEntitySetNameConvention>();
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Entity<User>().HasMany(r => r.Roles);
-            modelBuilder.Entity<Role>().HasMany(u => u.Users);
+            //modelBuilder.Entity<User>().HasMany(r => r.Roles);
+            //modelBuilder.Entity<Role>().HasMany(u => u.Users);
 
             base.OnModelCreating(modelBuilder);
         }

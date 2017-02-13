@@ -14,7 +14,7 @@ using System.Web.Http;
 namespace OraCodeChallenge.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/auth")]
+    [RoutePrefix("auth")]
     public class AuthController : ApiController
     {
         private readonly OraContext db = new OraContext();
@@ -35,11 +35,9 @@ namespace OraCodeChallenge.Controllers
                 }
                 else
                 {
-                    var loginSuccess =
-                        string.Equals(EncryptPassword(model.Password, existingUser.Salt),
-                            existingUser.PasswordHash);
-
-                    if (loginSuccess)
+                    string ph = EncryptPassword(model.Password, existingUser.Salt);
+    
+                    if (ph == existingUser.PasswordHash)
                     {
                         object dbUser;
                         var token = CreateToken(existingUser, out dbUser);
@@ -53,7 +51,13 @@ namespace OraCodeChallenge.Controllers
             }
             return response;
         }
-      
+
+        [Route("logout")]
+        public HttpResponseMessage Logout(LoginViewModel model)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
         /// <summary>
         /// Create a Jwt with user information
         /// </summary>
