@@ -26,7 +26,7 @@ namespace OraCodeChallenge
             //);
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
+                name: "OraApi",
                 routeTemplate: "{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );

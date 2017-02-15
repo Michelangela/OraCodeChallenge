@@ -1,6 +1,5 @@
 namespace OraCodeChallenge.Migrations
 {
-    using Models.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -11,8 +10,6 @@ namespace OraCodeChallenge.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "OraCodeChallenge.Models.OraContext";
         }
 
         protected override void Seed(OraCodeChallenge.Models.OraContext context)
@@ -21,16 +18,14 @@ namespace OraCodeChallenge.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
-
-            //context.Roles.AddOrUpdate(r => r.Name,
-            //        new Role { Name = "User" },
-            //        new Role { Name = "Admin" },
-            //        new Role { Name = "Sales" });
-
-            context.Chats.AddOrUpdate(new Chat
-            {
-                ChatId = 1
-            });
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
         }
     }
 }

@@ -263,12 +263,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702130204328_Removing Roles.cs" />
-    <Compile Include="Migrations\201702130204328_Removing Roles.Designer.cs">
-      <DependentUpon>201702130204328_Removing Roles.cs</DependentUpon>
+    <Compile Include="Migrations\201702142139048_Initial.cs" />
+    <Compile Include="Migrations\201702142139048_Initial.Designer.cs">
+      <DependentUpon>201702142139048_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\Chat.cs" />
+    <Compile Include="Models\Entities\ChatMessage.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\OraContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -350,8 +351,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702130204328_Removing Roles.resx">
-      <DependentUpon>201702130204328_Removing Roles.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702142139048_Initial.resx">
+      <DependentUpon>201702142139048_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

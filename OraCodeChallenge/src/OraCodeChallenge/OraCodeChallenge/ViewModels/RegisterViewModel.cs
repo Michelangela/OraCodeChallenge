@@ -4,8 +4,9 @@ namespace OraCodeChallenge.ViewModels
 {
     public class RegisterViewModel
     {
-        //[Required]
-        //public string Username { get; set; }
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
 
         [Required]
         [EmailAddress]

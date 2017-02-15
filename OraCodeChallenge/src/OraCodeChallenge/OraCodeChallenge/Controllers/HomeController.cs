@@ -11,7 +11,6 @@ namespace OraCodeChallenge.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-
             return View();
         }
     }

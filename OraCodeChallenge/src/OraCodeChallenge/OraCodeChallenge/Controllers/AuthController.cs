@@ -53,7 +53,8 @@ namespace OraCodeChallenge.Controllers
         }
 
         [Route("logout")]
-        public HttpResponseMessage Logout(LoginViewModel model)
+        [HttpGet]
+        public HttpResponseMessage Logout()
         {
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -75,9 +76,9 @@ namespace OraCodeChallenge.Controllers
             var payload = new Dictionary<string, object>
             {
                 {"email", user.Email},
-                {"userId", user.Id},
+                {"userId", user.UserId},
                 {"role", "Admin"  },
-                {"sub", user.Id},
+                {"sub", user.UserId},
                 {"nbf", notBefore},
                 {"iat", issuedAt},
                 {"exp", expiry}
@@ -88,7 +89,7 @@ namespace OraCodeChallenge.Controllers
 
             var token = JsonWebToken.Encode(payload, apikey, JwtHashAlgorithm.HS256);
 
-            dbUser = new { user.Email, user.Id };
+            dbUser = new { user.Email, user.UserId };
             return token;
         }
 

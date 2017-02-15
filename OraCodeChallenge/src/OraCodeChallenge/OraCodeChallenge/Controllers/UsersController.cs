@@ -25,7 +25,7 @@ namespace OraCodeChallenge.Controllers
             HttpResponseMessage response = null;
             if (ModelState.IsValid)
             {
-                var dbUsers = db.Users.Select(x => new { Id = x.Id, Email = x.Email }).OrderBy(x => x.Id);
+                var dbUsers = db.Users.Select(x => new { Id = x.UserId, Email = x.Email }).OrderBy(x => x.Id);
 
                 if (dbUsers == null)
                 {
@@ -45,7 +45,7 @@ namespace OraCodeChallenge.Controllers
 
         // GET /users/current
         [Route("current")]
-        public HttpResponseMessage Current()
+        public HttpResponseMessage GetUser()
         {
             HttpResponseMessage response = null;
 
@@ -60,14 +60,14 @@ namespace OraCodeChallenge.Controllers
                 {
                     var payload = JWT.JsonWebToken.DecodeToObject(t, secretKey) as IDictionary<string, object>;
 
-                    object x = null;
+                    object e = null;
 
-                    payload.TryGetValue("email", out x);
+                    payload.TryGetValue("email", out e);
                     
-                    if (!String.IsNullOrEmpty(x.ToString()) && (ModelState.IsValid))
+                    if (!String.IsNullOrEmpty(e.ToString()) && (ModelState.IsValid))
                     {
  
-                        var existingUser = db.Users.Select(a => new { Id = a.Id, Email = a.Email }).FirstOrDefault(u => u.Email == x.ToString());
+                        var existingUser = db.Users.Select(a => new { Id = a.UserId, Email = a.Email }).FirstOrDefault(u => u.Email == e.ToString());
 
                         if (existingUser == null)
                         {
@@ -90,6 +90,59 @@ namespace OraCodeChallenge.Controllers
                 catch (JWT.SignatureVerificationException)
                 {
                     Console.WriteLine("Invalid token!");
+                }
+
+            }
+
+            return response;
+        }
+
+        // PATCH /users/current
+        [Route("current")]
+        [HttpPatch]
+        public HttpResponseMessage PatchUser(RegisterViewModel user)
+        {
+            HttpResponseMessage response = null;
+
+            //extract Authorization token
+            IEnumerable<string> headerValues = Request.Headers.GetValues("Authorization");
+            var t = headerValues.FirstOrDefault();
+
+            if (!string.IsNullOrEmpty(t))
+            {
+                var secretKey = "secretKey"; //var secret = ConfigurationManager.AppSettings.Get("jwtKey");
+                try
+                {
+                    var payload = JWT.JsonWebToken.DecodeToObject(t, secretKey) as IDictionary<string, object>;
+
+                    object e = null;
+
+                    payload.TryGetValue("email", out e);
+
+                    if (!String.IsNullOrEmpty(e.ToString()) && (ModelState.IsValid))
+                    {
+                        var existingUser = db.Users.FirstOrDefault(u => u.Email == e.ToString());
+
+                        if (existingUser != null)
+                        {      
+                            existingUser.Name = user.Name;
+                            //password not at this time
+                            db.SaveChanges();
+                             
+                            response = Request.CreateResponse(existingUser);
+                        }
+                        else response = Request.CreateResponse(HttpStatusCode.NotFound);
+                       
+                    }
+                    else
+                    {
+                        response = Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                    }
+                    return response;
+                }
+                catch (JWT.SignatureVerificationException)
+                {
+                    response = Request.CreateResponse(HttpStatusCode.NoContent);
                 }
 
             }
