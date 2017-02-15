@@ -13,6 +13,14 @@ namespace OraCodeChallenge
     {
         protected void Application_Start()
         {
+            //AreaRegistration.RegisterAllAreas();
+            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            //GlobalConfiguration.Configure(WebApiConfig.Register); // moved up before MVC's setup
+            //RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //BundleConfig.RegisterBundles(BundleTable.Bundles);
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

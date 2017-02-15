@@ -12,9 +12,9 @@ using System.Net.Http.Headers;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
-#if Handle_PageResultOfT
-using System.Web.Http.OData;
-#endif
+//#if Handle_PageResultOfT
+using System.Web.OData;
+//#endif
 
 namespace OraCodeChallenge.Areas.HelpPage
 {

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.OData.Query;
 
 namespace OraCodeChallenge.Models.Entities
 {
+    [Page(MaxTop = 100)]
     public class Chat
     {
         [Key]
